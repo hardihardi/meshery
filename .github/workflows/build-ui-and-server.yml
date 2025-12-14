@@ -125,7 +125,6 @@ jobs:
           REMOTE_PROVIDER_USER_EMAIL: ${{ secrets.REMOTE_PROVIDER_TEST_USER_EMAIL }}
           REMOTE_PROVIDER_USER_PASSWORD: ${{ secrets.REMOTE_PROVIDER_TEST_USER_PASS }}
           PROVIDER_TOKEN: ${{ secrets.REMOTE_PROVIDER_TEST_USER_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.MESHERY_CI  }}
         run: make test-e2e-ci
       - name: Save PR metadata
         if: ${{ !cancelled() && github.event_name == 'pull_request_target' }}
@@ -211,7 +210,7 @@ jobs:
         run: swagger generate spec -o ./docs/_data/swagger.yml --scan-models && swagger flatten ./docs/_data/swagger.yml -o ./docs/_data/swagger.yml --with-expand --format=yaml
 
   # validate graphQL schema
-  garphql_validate:
+  graphql_validate:
     name: Validate GraphQL schema
     if: github.repository == 'meshery/meshery'
     runs-on: ubuntu-24.04
