@@ -364,7 +364,7 @@ func (r *subscriptionResolver) SubscribeMeshSyncEvents(ctx context.Context, conn
 
 			dataHandler := machinectx.MesheryCtrlsHelper.GetMeshSyncDataHandlersForEachContext()
 			if dataHandler == nil {
-				r.Log.Info("skipping meshsync events subscription for connection Id: %s", connectionID)
+				r.Log.Info(fmt.Sprintf("skipping meshsync events subscription for connection Id: %s", connectionID))
 				r.Log.Info("connection to broker and datahandler is not yet initialised")
 				continue
 			}
@@ -372,7 +372,7 @@ func (r *subscriptionResolver) SubscribeMeshSyncEvents(ctx context.Context, conn
 			err = dataHandler.ListenToMeshSyncEvents(brokerEventsChan)
 			if err != nil {
 				r.Log.Warn(err)
-				r.Log.Info("skipping meshsync events subscription for connection Id: %s", connectionID)
+				r.Log.Info(fmt.Sprintf("skipping meshsync events subscription for connection Id: %s", connectionID))
 				continue
 			}
 			go func(connectionID string, brokerEventsChan chan *broker.Message) {
