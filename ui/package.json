@@ -131,7 +131,7 @@
     "husky": "^7.0.2",
     "lint-staged": "^12.3.5",
     "nodemon": "^2.0.20",
-    "nyc": "^15.1.0",
+    "nyc": "^18.0.0",
     "relay-compiler": "^13.2.0",
     "start-server-and-test": "^1.13.1",
     "webpack": "^4.44.0",
